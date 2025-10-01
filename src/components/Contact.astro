@@ -1,0 +1,301 @@
+---
+// Contact.astro
+const contactInfo = {
+  phone: '+62 877-7644-2269',
+  email: 'info@devsonlab.net',
+  website: 'devsonlab.web.id',
+}
+
+// const socialLinks = [
+//   { name: 'LinkedIn', icon: '💼', url: '#' },
+//   { name: 'GitHub', icon: '💻', url: '#' },
+//   { name: 'Twitter', icon: '🐦', url: '#' },
+//   { name: 'Instagram', icon: '📸', url: '#' },
+// ]
+---
+
+<section id="contact">
+  <div class="contact-container">
+    <div class="contact-header">
+      <h1>Kontak Kami</h1>
+      <p>Punya proyek yang ingin Anda wujudkan? Mari kita bekerja sama untuk menciptakan sesuatu yang luar biasa!</p>
+    </div>
+
+    <div class="contact-content">
+      <!-- Contact Information Cards -->
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="card-icon phone-icon">📱</div>
+          <h3>Phone / Whatsapp</h3>
+          <a href={`tel:${contactInfo.phone.replace(/\D/g, '')}`} class="contact-link">
+            {contactInfo.phone}
+          </a>
+          <p class="card-description">Kami akan merespons secepatnya</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="card-icon email-icon">✉️</div>
+          <h3>Email</h3>
+          <a href={`mailto:${contactInfo.email}`} class="contact-link">
+            {contactInfo.email}
+          </a>
+          <p class="card-description">Kami akan menjawab dalam 24 jam</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="card-icon website-icon">🌐</div>
+          <h3>Website</h3>
+          <a href={`https://${contactInfo.website}`} target="_blank" rel="noopener noreferrer" class="contact-link">
+            {contactInfo.website}
+          </a>
+          <p class="card-description">Kunjungi situs web kami</p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+
+      <!-- Social Links & Address -->
+    </div>
+  </div>
+</section>
+
+<style>
+  #contact {
+    min-height: 10vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 60px 20px;
+  }
+
+  .contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: 60px;
+    color: white;
+  }
+
+  .contact-header h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .contact-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+
+  .contact-content {
+    display: grid;
+    gap: 40px;
+  }
+
+  /* Contact Cards */
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+
+  .contact-card {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .contact-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+
+  .contact-link {
+    display: block;
+    color: #667eea;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+  }
+
+  .contact-link:hover {
+    color: #764ba2;
+  }
+
+  .card-description {
+    color: #999;
+    font-size: 0.9rem;
+  }
+
+  /* Contact Form */
+  .contact-form-wrapper {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .contact-form-wrapper h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2rem;
+  }
+
+  .contact-form {
+    display: grid;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group label {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .submit-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    justify-self: start;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+  }
+
+  /* Additional Info */
+  .additional-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+
+  .social-section,
+  .address-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .social-section h3,
+  .address-section h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+  }
+
+  .social-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+
+  .social-link:hover {
+    background: #667eea;
+    color: white;
+    transform: translateX(5px);
+  }
+
+  .social-icon {
+    font-size: 1.5rem;
+  }
+
+  .social-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .address {
+    color: #666;
+    line-height: 1.8;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 768px) {
+    .contact-header h1 {
+      font-size: 2rem;
+    }
+
+    .contact-form-wrapper {
+      padding: 25px;
+    }
+
+    .social-links {
+      grid-template-columns: 1fr;
+    }
+
+    .submit-btn {
+      width: 100%;
+      justify-self: stretch;
+    }
+  }
+</style>

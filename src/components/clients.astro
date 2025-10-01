@@ -1,0 +1,340 @@
+---
+// Clients.astro
+const clients = [
+  {
+    id: 1,
+    name: 'TNI AU',
+    logo: '🎖️',
+    color: '#f093fb',
+  },
+  {
+    id: 2,
+    name: 'Operator Telkomsel',
+    logo: '📶',
+    color: '#4facfe',
+  },
+  {
+    id: 3,
+    name: 'Rumah Sakit',
+    logo: '🏥',
+    color: '#43e97b',
+  },
+
+  {
+    id: 4,
+    name: 'Otomotif',
+    logo: '🚗',
+    color: '#a8edea',
+  },
+  {
+    id: 5,
+    name: 'Retail Alat Kesehatan',
+    logo: '🏥',
+    color: '#ffeaa7',
+  },
+  {
+    id: 6,
+    name: 'Badan Pertanahan Negara',
+    logo: '🏡',
+    color: '#74b9ff',
+  },
+  {
+    id: 7,
+    name: 'Perusahaan IT',
+    logo: '🎬',
+    color: '#fd79a8',
+  },
+  {
+    id: 8,
+    name: 'Percetakan',
+    logo: '📰',
+    color: '#a29bfe',
+  },
+  {
+    id: 9,
+    name: 'Rental Mobil',
+    logo: '🚕',
+    color: '#00b894',
+  },
+  {
+    id: 10,
+    name: 'Sales Agency',
+    logo: '🛍️',
+    color: '#00b894',
+  },
+]
+---
+
+<section id="clients">
+  <div class="clients-container">
+    <div class="clients-header">
+      <h1>Klien Kami</h1>
+      <p>Klien yang mempercayai kami</p>
+      <!-- <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number">{clients.length}+</span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Countries</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">98%</span>
+          <span class="stat-label">Satisfaction Rate</span>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="clients-grid">
+      {
+        clients.map((client) => (
+          <div class="client-card" style={`--client-color: ${client.color}`}>
+            <div class="logo-wrapper">
+              <div class="client-logo">{client.logo}</div>
+            </div>
+            <div class="client-name">{client.name}</div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- <div class="clients-footer">
+      <p>Join these amazing companies and start your project with us today!</p>
+      <a href="#contact" class="cta-button">Get Started</a>
+    </div> -->
+  </div>
+</section>
+
+<style>
+  #clients {
+    min-height: 10vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 80px 20px;
+  }
+
+  .clients-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* Header Section */
+  .clients-header {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+
+  .clients-header h1 {
+    font-size: 3.5rem;
+    color: #2d3436;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+  }
+
+  .clients-header p {
+    font-size: 1.3rem;
+    color: #636e72;
+    margin-bottom: 50px;
+  }
+
+  /* Stats Section */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+    color: #636e72;
+    margin-top: 8px;
+    font-weight: 600;
+  }
+
+  /* Clients Grid */
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+  }
+
+  .client-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .client-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--client-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .client-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .client-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .logo-wrapper {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .client-card:hover .logo-wrapper {
+    background: var(--client-color);
+    transform: rotate(360deg) scale(1.1);
+  }
+
+  .client-logo {
+    font-size: 3rem;
+    transition: transform 0.3s ease;
+  }
+
+  .client-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2d3436;
+    text-align: center;
+    transition: color 0.3s ease;
+  }
+
+  .client-card:hover .client-name {
+    color: var(--client-color);
+  }
+
+  /* Footer Section */
+  .clients-footer {
+    text-align: center;
+    padding: 50px 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .clients-footer p {
+    font-size: 1.3rem;
+    color: #2d3436;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 18px 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .clients-header h1 {
+      font-size: 2.5rem;
+    }
+
+    .clients-header p {
+      font-size: 1.1rem;
+    }
+
+    .stats {
+      gap: 40px;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+    }
+
+    .clients-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .client-card {
+      padding: 30px 15px;
+    }
+
+    .logo-wrapper {
+      width: 80px;
+      height: 80px;
+    }
+
+    .client-logo {
+      font-size: 2.5rem;
+    }
+
+    .client-name {
+      font-size: 1rem;
+    }
+
+    .clients-footer p {
+      font-size: 1.1rem;
+    }
+
+    .cta-button {
+      padding: 15px 40px;
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .clients-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

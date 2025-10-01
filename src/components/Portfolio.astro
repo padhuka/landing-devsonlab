@@ -1,0 +1,205 @@
+---
+// Portfolio.astro
+const projects = [
+  {
+    id: 1,
+    companyName: 'Telkomsel',
+    companyLogo: '📞',
+    projectTitle: 'Retail Platform',
+    description:
+      'Platform untuk anagemen retail Telkomsel Distributor Center (TDC), memudahkan distributor dalam mengelola produk, stok, dan pesanan secara efisien.',
+    tags: ['React', 'Node.js', 'UX Design'],
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  },
+  {
+    id: 2,
+    companyName: 'MABES TNI AU',
+    companyLogo: '🪖',
+    projectTitle: 'Personal GIS Military ',
+    description:
+      'Platform GIS untuk kebutuhan militer, khususnya Personal TNI secara real-time. Meningkatkan efisiensi operasional dan pengambilan keputusan berbasis data.',
+    tags: ['Vuejs', 'Postgresql', 'GIS'],
+    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+  },
+  {
+    id: 3,
+    companyName: 'Intelud TNI AU',
+    companyLogo: '✈️',
+    projectTitle: 'Flight Security Clearance System',
+    description:
+      'Platform untuk kebutuhan pengambilan clearance flight militer, khususnya Flight Security Clearance System (FSCS). Meningkatkan efisiensi operasional dan pengambilan keputusan berbasis data.',
+    tags: ['Vue.js', 'PostgreSQL', 'Security'],
+    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+  },
+  {
+    id: 4,
+    companyName: 'Gemilang Repair',
+    companyLogo: '🚗',
+    projectTitle: 'Aplikasi Bengkel Otomotif',
+    description:
+      'Platfor untuk kebutuhan transaksi bengkel mobil mulai dari estimasi biaya, pencatatan servis, hingga histori kendaraan. Meningkatkan efisiensi operasional dan pengambilan keputusan berbasis data.',
+    tags: ['Vue.js', 'PostgreSQL', 'Automotive'],
+    gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+  },
+  {
+    id: 5,
+    companyName: 'Bintang Motor',
+    companyLogo: '🚗',
+    projectTitle: 'Inventory Management System',
+    description:
+      'Platform untuk kebutuhan manajemen inventaris sparepart, mulai dari pencatatan stok, penjualan, hingga laporan keuangan. Meningkatkan efisiensi operasional dan pengambilan keputusan berbasis data.',
+    tags: ['Laravel', 'Postgresql', 'Inventory'],
+    gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+  },
+  {
+    id: 6,
+    companyName: 'Sinar Murni',
+    companyLogo: '📝',
+    projectTitle: 'Elektronik Ijazah',
+    description:
+      'Platform untuk kebutuhan elektronik ijazah, memudahkan pengembangan dan pengujian sistem elektronik. Meningkatkan efisiensi operasional dan pengambilan keputusan berbasis data.',
+    tags: ['PHP', 'Postgresql', 'Electronics'],
+    gradient: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+  },
+]
+---
+
+<section id="portfolio">
+  <h2>Portfolio</h2>
+  <div class="portfolio-grid">
+    {
+      projects.map((project) => (
+        <div class="portfolio-card">
+          <div class="card-image" style={`background: ${project.gradient};`}>
+            <div class="company-logo">{project.companyLogo}</div>
+          </div>
+          <div class="card-content">
+            <div class="company-name">{project.companyName}</div>
+            <div class="project-title">{project.projectTitle}</div>
+            <div class="project-description">{project.description}</div>
+            <div class="project-tags">
+              {project.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  #portfolio {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+
+  .portfolio-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-image {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .company-logo {
+    font-size: 3rem;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .card-content {
+    padding: 25px;
+  }
+
+  .company-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .project-description {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+  }
+
+  .tag {
+    background: #f0f0f0;
+    color: #667eea;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 2rem;
+    }
+
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
