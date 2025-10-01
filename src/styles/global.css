@@ -94,7 +94,7 @@ nav ul li a:hover::after {
 
 /* Hero */
 .hero {
-  height: 30vh;
+  height: 80vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   position: relative;
   color: #fff;
