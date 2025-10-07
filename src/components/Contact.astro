@@ -2,6 +2,7 @@
 // Contact.astro
 const contactInfo = {
   phone: '+62 877-7644-2269',
+  phone2: '+62 851-3809-5556',
   email: 'info@devsonlab.net',
   website: 'devsonlab.web.id',
 }
@@ -28,8 +29,12 @@ const contactInfo = {
           <div class="card-icon phone-icon">📱</div>
           <h3>Phone / Whatsapp</h3>
           <a href={`tel:${contactInfo.phone.replace(/\D/g, '')}`} class="contact-link">
+            {contactInfo.phone2}
+          </a>
+          <a href={`tel:${contactInfo.phone.replace(/\D/g, '')}`} class="contact-link">
             {contactInfo.phone}
           </a>
+
           <p class="card-description">Kami akan merespons secepatnya</p>
         </div>
 
