@@ -1,7 +1,10 @@
 <header>
-  <nav>
+  <nav class="navbar">
     <a href="/" class="logo">devsonLab</a>
-    <ul>
+
+    <button class="menu-toggle" aria-label="Toggle Menu"> ☰ </button>
+
+    <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">Tentang Kami</a></li>
       <li><a href="#services">Layanan</a></li>
@@ -11,3 +14,95 @@
     </ul>
   </nav>
 </header>
+
+<style>
+  header {
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #222;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #0077ff;
+  }
+
+  /* Tombol hamburger hanya muncul di mobile */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  /* Responsif: tampilan mobile */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 64px;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      width: 200px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .nav-links li {
+      margin: 0.5rem 0;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.menu-toggle')
+    const nav = document.querySelector('.nav-links')
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active')
+    })
+  })
+</script>
