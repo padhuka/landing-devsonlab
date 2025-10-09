@@ -1,0 +1,6 @@
+# robots.txt for https://devsonlab.web.id
+User-agent: *
+Allow: /
+
+# Lokasi sitemap untuk membantu Google mengindeks halaman
+Sitemap: https://devsonlab.web.id/sitemap-index.xml
